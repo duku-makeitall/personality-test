@@ -1,0 +1,36 @@
+/* src/styles/variables.css */
+:root {
+  /* Background Colors */
+  --color-bg-darkest: #0a0e1a;  /* 전체 바디 배경 */
+  --color-bg-darker: #121829;   /* 콘텐츠 카드 배경 */
+  --color-bg-glass: rgba(18, 24, 41, 0.65); /* 글래스모피즘 배경 */
+  --color-border-glass: rgba(255, 255, 255, 0.08); /* 유리 경계선 */
+
+  /* Neon Accent Colors */
+  --color-primary: #00e5ff;      /* 네온 시안 (활력, 메인 포인트) */
+  --color-secondary: #bd00ff;    /* 네온 퍼플 (서브 포인트) */
+  --color-success: #00ff66;      /* 네온 그린 (안정, 정답/활성화) */
+  --color-warning: #ffb800;      /* 네온 옐로우 (주의/진행률) */
+  --color-danger: #ff0055;       /* 네온 핑크 (에러/뒤로가기) */
+
+  /* Neutral Text Colors */
+  --color-text-white: #ffffff;   /* 제목, 중요 강조 텍스트 */
+  --color-text-gray: #94a3b8;    /* 본문, 부설명 */
+  --color-text-muted: #64748b;   /* 비활성, 플레이스홀더 */
+
+  /* Shadows & Glows */
+  --glow-primary: 0 0 15px rgba(0, 229, 255, 0.4);
+  --glow-secondary: 0 0 15px rgba(189, 0, 255, 0.4);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Fonts */
+  --font-family: 'Pretendard', 'Outfit', sans-serif;
+
+  /* Theme Gradients for 6 Personality Types */
+  --gradient-idea: linear-gradient(135deg, #FFE259 0%, #FFA751 100%);
+  --gradient-builder: linear-gradient(135deg, #00FFC6 0%, #19B5FE 100%);
+  --gradient-strategy: linear-gradient(135deg, #1FA2FF 0%, #12D8FA 50%, #A6FFCB 100%);
+  --gradient-collaboration: linear-gradient(135deg, #F857A6 0%, #FF5858 100%);
+  --gradient-analysis: linear-gradient(135deg, #8A2387 0%, #E94057 50%, #F27121 100%);
+  --gradient-execution: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+}

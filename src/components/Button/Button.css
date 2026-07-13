@@ -1,0 +1,112 @@
+/* src/components/Button/Button.css */
+
+/* Core button resets */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+/* Primary CTA Button (START TEST, RETRY) */
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-bg-darkest);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 16px 36px;
+  border-radius: 50px;
+  box-shadow: var(--glow-primary);
+  width: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.65), 0 0 25px rgba(189, 0, 255, 0.65);
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+
+/* Choice Option Button (Test options) */
+.btn-choice {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border-glass);
+  color: var(--color-text-white);
+  border-radius: 16px;
+  padding: 18px 22px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-choice:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.btn-choice:active {
+  background: rgba(0, 229, 255, 0.08);
+  border-color: var(--color-primary);
+  transform: scale(0.99) translateX(4px);
+}
+
+/* Back Button (Previous question) */
+.btn-back {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-text-muted);
+  color: var(--color-text-gray);
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  gap: 6px;
+}
+
+.btn-back:hover:not(:disabled) {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: rgba(255, 0, 85, 0.04);
+}
+
+.btn-back:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Share / Link Copy Button (Secondary action) */
+.btn-share {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-glass);
+  color: var(--color-text-white);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 8px;
+}
+
+.btn-share:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-secondary);
+  box-shadow: var(--glow-secondary);
+}
+
+.btn-share:active {
+  transform: scale(0.97);
+}

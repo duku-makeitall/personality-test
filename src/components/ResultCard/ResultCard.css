@@ -1,0 +1,155 @@
+/* src/components/ResultCard/ResultCard.css */
+
+.result-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Base result card header */
+.result-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.result-subtitle {
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.result-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: var(--gradient-strategy); /* Fallback */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Gradient text wrappers for types */
+.text-gradient-idea { background: var(--gradient-idea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient-builder { background: var(--gradient-builder); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient-strategy { background: var(--gradient-strategy); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient-collaboration { background: var(--gradient-collaboration); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient-analysis { background: var(--gradient-analysis); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient-execution { background: var(--gradient-execution); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Glow outline based on type */
+.result-box {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-glass);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: var(--shadow-glass);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing effects for different types */
+.result-box-idea { box-shadow: var(--shadow-glass), 0 0 25px rgba(255, 226, 89, 0.2); border-color: rgba(255, 226, 89, 0.3); }
+.result-box-builder { box-shadow: var(--shadow-glass), 0 0 25px rgba(0, 255, 198, 0.2); border-color: rgba(0, 255, 198, 0.3); }
+.result-box-strategy { box-shadow: var(--shadow-glass), 0 0 25px rgba(31, 162, 255, 0.2); border-color: rgba(31, 162, 255, 0.3); }
+.result-box-collaboration { box-shadow: var(--shadow-glass), 0 0 25px rgba(248, 87, 166, 0.2); border-color: rgba(248, 87, 166, 0.3); }
+.result-box-analysis { box-shadow: var(--shadow-glass), 0 0 25px rgba(233, 64, 87, 0.2); border-color: rgba(233, 64, 87, 0.3); }
+.result-box-execution { box-shadow: var(--shadow-glass), 0 0 25px rgba(255, 65, 108, 0.2); border-color: rgba(255, 65, 108, 0.3); }
+
+/* Description sections */
+.result-section {
+  margin-bottom: 24px;
+}
+
+.result-section:last-child {
+  margin-bottom: 0;
+}
+
+.result-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-list li {
+  font-size: 0.95rem;
+  color: var(--color-text-gray);
+  position: relative;
+  padding-left: 18px;
+}
+
+.result-list li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.result-box-idea .result-list li::before { color: #FFE259; }
+.result-box-builder .result-list li::before { color: #00FFC6; }
+.result-box-strategy .result-list li::before { color: #1FA2FF; }
+.result-box-collaboration .result-list li::before { color: #F857A6; }
+.result-box-analysis .result-list li::before { color: #E94057; }
+.result-box-execution .result-list li::before { color: #FF416C; }
+
+/* Role Model Section */
+.role-model-badge {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border-glass);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.role-model-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-bg-darkest);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border: 2px solid var(--color-secondary);
+}
+
+.result-box-idea .role-model-avatar { border-color: #FFE259; }
+.result-box-builder .role-model-avatar { border-color: #00FFC6; }
+.result-box-strategy .role-model-avatar { border-color: #1FA2FF; }
+.result-box-collaboration .role-model-avatar { border-color: #F857A6; }
+.result-box-analysis .role-model-avatar { border-color: #E94057; }
+.result-box-execution .role-model-avatar { border-color: #FF416C; }
+
+.role-model-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-model-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text-white);
+}
+
+.role-model-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}

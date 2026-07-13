@@ -1,0 +1,73 @@
+/* src/components/ChemistryMatch/ChemistryMatch.css */
+
+.chemistry-container {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.chemistry-title-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Glass-style match card */
+.chemistry-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.chemistry-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-style: solid;
+  border-color: var(--color-success);
+}
+
+.chemistry-partner-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge colors for matching types */
+.partner-badge-idea { background: var(--gradient-idea); }
+.partner-badge-builder { background: var(--gradient-builder); }
+.partner-badge-strategy { background: var(--gradient-strategy); }
+.partner-badge-collaboration { background: var(--gradient-collaboration); }
+.partner-badge-analysis { background: var(--gradient-analysis); }
+.partner-badge-execution { background: var(--gradient-execution); }
+
+.chemistry-partner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chemistry-partner-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-text-white);
+}
+
+.chemistry-partner-reason {
+  font-size: 0.88rem;
+  color: var(--color-text-gray);
+  line-height: 1.4;
+}

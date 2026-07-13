@@ -1,0 +1,105 @@
+/* src/styles/main.css */
+@import url('./variables.css');
+
+/* CSS Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-darkest);
+  font-family: var(--font-family);
+  color: var(--color-text-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* App Container Layout */
+#app {
+  width: 100%;
+  max-width: 480px; /* Mobile first default */
+  margin: 0 auto;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Tablet (768px 이상) */
+@media (min-width: 768px) {
+  #app {
+    max-width: 640px;
+  }
+}
+
+/* Desktop (1024px 이상) */
+@media (min-width: 1024px) {
+  #app {
+    max-width: 800px;
+  }
+}
+
+/* Typography Hierarchy */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+p, span, label {
+  font-size: 0.95rem;
+  color: var(--color-text-gray);
+}
+
+.caption {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Global Focus Ring for Keyboard Access */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* Utility Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-slide {
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
