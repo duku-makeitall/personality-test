@@ -1,0 +1,408 @@
+<!-- demo.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>창업 성향 테스트 - UI 컴포넌트 쇼룸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/main.css">
+  <style>
+    /* Showroom specific styling */
+    body {
+      display: block; /* Override center layout of main.css */
+      padding: 40px 20px;
+      overflow-y: auto;
+    }
+    
+    .showroom-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .showroom-header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--color-border-glass);
+      padding-bottom: 24px;
+    }
+
+    .showroom-subtitle {
+      color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .showroom-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--color-text-white);
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .demo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .component-box {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .component-box-title {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .type-selector-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .type-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border-glass);
+      color: var(--color-text-white);
+      border-radius: 12px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .type-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-primary);
+    }
+
+    .type-btn.active {
+      background: rgba(0, 229, 255, 0.15);
+      border-color: var(--color-primary);
+      box-shadow: var(--glow-primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="showroom-container">
+    <header class="showroom-header">
+      <div class="showroom-subtitle">UI/UX COMPONENT SHOWROOM</div>
+      <h1 class="showroom-title">창업 성향 테스트 컴포넌트</h1>
+      <p style="color: var(--color-text-gray); margin-top: 8px;">prd.md & design.md를 기반으로 제작된 모듈러 디자인 시스템 시연 페이지</p>
+    </header>
+
+    <!-- 1. BUTTONS -->
+    <h2 class="section-title"><span>🔘</span> 1. Button 컴포넌트</h2>
+    <div class="demo-grid">
+      <div class="component-box">
+        <span class="component-box-title">Primary CTA 버튼 (시작 / 다시하기)</span>
+        <div id="btn-primary-container" style="width: 100%;"></div>
+      </div>
+      
+      <div class="component-box">
+        <span class="component-box-title">Choice 버튼 (문항 답변형)</span>
+        <div id="btn-choice-container-1" style="width: 100%;"></div>
+        <div id="btn-choice-container-2" style="width: 100%;"></div>
+      </div>
+      
+      <div class="component-box">
+        <span class="component-box-title">Back 버튼 (이전가기 / 활성 및 비활성)</span>
+        <div style="display: flex; gap: 12px;">
+          <div id="btn-back-enabled-container"></div>
+          <div id="btn-back-disabled-container"></div>
+        </div>
+      </div>
+
+      <div class="component-box">
+        <span class="component-box-title">Share 버튼 (결과 복사 / 공유하기)</span>
+        <div id="btn-share-container"></div>
+      </div>
+    </div>
+
+    <!-- 2. GLASS CARD -->
+    <h2 class="section-title"><span>🔮</span> 2. GlassCard 컴포넌트</h2>
+    <div class="demo-grid" style="grid-template-columns: 1fr;">
+      <div id="glass-card-container"></div>
+    </div>
+
+    <!-- 3. PROGRESS BAR -->
+    <h2 class="section-title"><span>📊</span> 3. ProgressBar 컴포넌트</h2>
+    <div class="component-box" style="width: 100%; align-items: stretch;">
+      <span class="component-box-title">인터랙티브 데모 (동적 진행률 조절)</span>
+      <div id="progress-bar-container"></div>
+      <div style="display: flex; gap: 12px; margin-top: 10px;">
+        <button id="prog-dec-btn" class="btn btn-back">➖ 진행률 감소 (-1)</button>
+        <button id="prog-inc-btn" class="btn btn-share">➕ 진행률 증가 (+1)</button>
+      </div>
+    </div>
+
+    <!-- 4. RESULTS & CHEMISTRY -->
+    <h2 class="section-title"><span>🏆</span> 4. ResultCard & ChemistryMatch 컴포넌트</h2>
+    <div class="type-selector-buttons">
+      <button class="type-btn active" data-type="idea">💡 아이디어형</button>
+      <button class="type-btn" data-type="builder">🛠️ 제작형</button>
+      <button class="type-btn" data-type="strategy">📈 전략형</button>
+      <button class="type-btn" data-type="collaboration">🤝 협업형</button>
+      <button class="type-btn" data-type="analysis">📊 분석형</button>
+      <button class="type-btn" data-type="execution">⚡ 실행형</button>
+    </div>
+
+    <div class="demo-grid" style="grid-template-columns: 1fr; margin-bottom: 60px;">
+      <div id="dynamic-result-container"></div>
+    </div>
+  </div>
+
+  <!-- SHOWROOM LOGIC SCRIPT -->
+  <script type="module">
+    import { createButton } from './src/components/Button/Button.js';
+    import { createGlassCard } from './src/components/GlassCard/GlassCard.js';
+    import { ProgressBar } from './src/components/ProgressBar/ProgressBar.js';
+    import { createResultCard } from './src/components/ResultCard/ResultCard.js';
+    import { createChemistryMatch } from './src/components/ChemistryMatch/ChemistryMatch.js';
+
+    // 1. BUTTON DEMOS
+    const pBtn = createButton({
+      text: '테스트 시작하기',
+      type: 'primary',
+      onClick: () => alert('메인 버튼 클릭!')
+    });
+    document.getElementById('btn-primary-container').appendChild(pBtn);
+
+    const cBtn1 = createButton({
+      text: '새로운 서비스 아이디어를 기획하고 발표한다',
+      type: 'choice',
+      icon: '💡',
+      onClick: () => alert('선택지 A 선택!')
+    });
+    document.getElementById('btn-choice-container-1').appendChild(cBtn1);
+
+    const cBtn2 = createButton({
+      text: '코드를 직접 작성하고 화면을 퍼블리싱한다',
+      type: 'choice',
+      icon: '🛠️',
+      onClick: () => alert('선택지 B 선택!')
+    });
+    document.getElementById('btn-choice-container-2').appendChild(cBtn2);
+
+    const bBtn1 = createButton({
+      text: '이전 질문',
+      type: 'back',
+      icon: '⬅️',
+      onClick: () => alert('이전으로 이동')
+    });
+    document.getElementById('btn-back-enabled-container').appendChild(bBtn1);
+
+    const bBtn2 = createButton({
+      text: '이전 질문',
+      type: 'back',
+      icon: '⬅️',
+      disabled: true
+    });
+    document.getElementById('btn-back-disabled-container').appendChild(bBtn2);
+
+    const sBtn = createButton({
+      text: '결과 링크 복사하기',
+      type: 'share',
+      icon: '🔗',
+      onClick: () => alert('클립보드에 복사되었습니다!')
+    });
+    document.getElementById('btn-share-container').appendChild(sBtn);
+
+    // 2. GLASS CARD DEMO
+    const cardContent = `
+      <h3 style="color: var(--color-primary); margin-bottom: 12px;">글래스모피즘 타이틀</h3>
+      <p style="margin-bottom: 16px;">여기에 카드의 내용이 노출됩니다. 마우스 커서를 올리면 위로 부드럽게 떠오르는 인터랙티브 효과를 적용할 수 있어 프리미엄한 감각을 제공합니다.</p>
+      <span class="caption">이 카드는 호버 피드백(Interactive) 기능이 활성화되어 있습니다.</span>
+    `;
+    const glassCard = createGlassCard({
+      content: cardContent,
+      interactive: true
+    });
+    document.getElementById('glass-card-container').appendChild(glassCard);
+
+    // 3. PROGRESS BAR DEMO
+    const progress = new ProgressBar();
+    let currentStep = 4;
+    const totalStep = 12;
+    progress.update(currentStep, totalStep);
+    document.getElementById('progress-bar-container').appendChild(progress.element);
+
+    document.getElementById('prog-inc-btn').addEventListener('click', () => {
+      if (currentStep < totalStep) {
+        currentStep++;
+        progress.update(currentStep, totalStep);
+      }
+    });
+
+    document.getElementById('prog-dec-btn').addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        progress.update(currentStep, totalStep);
+      }
+    });
+
+    // 4. RESULT & CHEMISTRY SELECTOR DEMO
+    const startupTypes = {
+      idea: {
+        typeId: 'idea',
+        typeName: '💡 아이디어형',
+        typeTitle: '세상을 바꾸는 혁신적 발상가',
+        role: 'CPO (제품 기획), 서비스 기획자',
+        strengths: ['트렌드 분석 및 기획력이 뛰어납니다.', '창의적이고 남들이 생각지 못한 비즈니스 모델을 구상합니다.'],
+        weaknesses: ['구현 현실성에 대한 검증이 부족할 수 있습니다.', '실행보다 아이디어 구상 자체에 머무르기 쉽습니다.'],
+        roleModel: { name: '스티브 잡스 (애플)', desc: '혁신적인 비전과 기획력으로 스마트폰 시대를 개척함', emoji: '👓' },
+        partner: {
+          partnerTypeId: 'builder',
+          partnerTypeName: '🛠️ 제작형',
+          partnerEmoji: '🛠️',
+          reason: '아이디어형의 머릿속 기획을 제작형이 실제로 빠르게 구현하고 검증해주어 환상의 파트너입니다.'
+        }
+      },
+      builder: {
+        typeId: 'builder',
+        typeName: '🛠️ 제작형',
+        typeTitle: '아이디어를 실물로 만드는 메이커',
+        role: 'CTO (기술 책임), 개발자, 디자이너',
+        strengths: ['상상 속의 서비스를 실물 MVP로 직접 만들어냅니다.', '기술적 가능성을 구체적으로 판별합니다.'],
+        weaknesses: ['시장 가치 검증보다 코딩/디자인 자체에 몰두하기 쉽습니다.', '대외 소통 및 기획 마케팅이 약할 수 있습니다.'],
+        roleModel: { name: '스티브 워즈니악 (애플 코파운더)', desc: '잡스의 아이디어를 완벽한 회로와 컴퓨터 제품으로 개발해냄', emoji: '🧑‍💻' },
+        partner: {
+          partnerTypeId: 'idea',
+          partnerTypeName: '💡 아이디어형',
+          partnerEmoji: '💡',
+          reason: '제작형의 코딩/디자인 역량을 아이디어형의 혁신적인 비전과 융합할 때 완벽한 서비스가 탄생합니다.'
+        }
+      },
+      strategy: {
+        typeId: 'strategy',
+        typeName: '📈 전략형',
+        typeTitle: '시장을 분석하고 방향을 잡는 나침반',
+        role: 'CEO (대표), 비즈니스 디벨로퍼',
+        strengths: ['시장 규모를 분석하고 경쟁 우위 전략을 치밀하게 설계합니다.', '팀의 궁극적인 비즈니스 구조를 잡습니다.'],
+        weaknesses: ['너무 신중하게 생각하느라 첫발을 떼기 늦어질 수 있습니다.', '초기 기동력이 떨어질 수 있습니다.'],
+        roleModel: { name: '제프 베이조스 (아마존)', desc: '플라이휠 효과 등 장기적이고 치밀한 비즈니스 전략 설계', emoji: '📦' },
+        partner: {
+          partnerTypeId: 'execution',
+          partnerTypeName: '⚡ 실행형',
+          partnerEmoji: '⚡',
+          reason: '전략형의 치밀한 밑그림을 실행형이 현장에서 즉각 행동하고 검증해주어 최상의 궁합을 이룹니다.'
+        }
+      },
+      collaboration: {
+        typeId: 'collaboration',
+        typeName: '🤝 협업형',
+        typeTitle: '팀의 결속력을 높이는 윤활유',
+        role: 'CMO (마케팅), 대외협력, HR',
+        strengths: ['뛰어난 소통력으로 팀 내 갈등을 중재하고 분위기를 이끕니다.', '네트워킹 및 외부 파트너십 구축에 탁월합니다.'],
+        weaknesses: ['객관적인 리스크 판단이나 수치 평가를 머뭇거릴 수 있습니다.', '결단력이 필요한 때에 흔들리기 쉽습니다.'],
+        roleModel: { name: '토니 셰이 (자포스)', desc: '소통과 고객 중심의 행복 문화를 형성해 거대 기업으로 성장시킴', emoji: '👞' },
+        partner: {
+          partnerTypeId: 'analysis',
+          partnerTypeName: '📊 분석형',
+          partnerEmoji: '📊',
+          reason: '다소 날카롭고 차가운 분석형의 팩트 체크를 협업형이 완충하고 팀워크로 조화롭게 중재해 줍니다.'
+        }
+      },
+      analysis: {
+        typeId: 'analysis',
+        typeName: '📊 분석형',
+        typeTitle: '리스크를 감지하고 검증하는 방패',
+        role: 'CFO (재무), 데이터 분석가',
+        strengths: ['데이터와 숫자를 기반으로 리스크를 철저히 검증합니다.', '자금 계획 및 수익화 지표를 설계합니다.'],
+        weaknesses: ['팀원들에게 차갑거나 비판적인 인상을 줄 수 있습니다.', '감정적 소통에 서투를 수 있습니다.'],
+        roleModel: { name: '피터 틸 (페이팔)', desc: '독점 시장의 가치를 숫자로 분석하고 제로 투 원의 전략을 규명함', emoji: '♟️' },
+        partner: {
+          partnerTypeId: 'collaboration',
+          partnerTypeName: '🤝 협업형',
+          partnerEmoji: '🤝',
+          reason: '날카로운 분석에 따뜻한 조력과 조율을 더하는 협업형과 팀을 이룰 때 균형 잡힌 팀 빌딩이 완료됩니다.'
+        }
+      },
+      execution: {
+        typeId: 'execution',
+        typeName: '⚡ 실행형',
+        typeTitle: '망설임 없이 고객을 만나는 돌격대장',
+        role: 'COO (운영), 세일즈, 그로스 해커',
+        strengths: ['높은 추진력으로 리스크를 뚫고 빠르게 세일즈를 성사시킵니다.', '고객 피드백을 수집해 서비스를 피벗합니다.'],
+        weaknesses: ['중장기적인 전략 설계나 꼼꼼한 수익성 확인이 누락될 수 있습니다.', '주먹구구식 운영이 될 우려가 있습니다.'],
+        roleModel: { name: '일론 머스크 (테슬라)', desc: '불가능에 가까운 비전을 무자비한 추진력과 행동으로 실천함', emoji: '🚀' },
+        partner: {
+          partnerTypeId: 'strategy',
+          partnerTypeName: '📈 전략형',
+          partnerEmoji: '📈',
+          reason: '실행형의 추진력에 전략형의 방향성 및 치밀한 분석이 더해지면 지치지 않고 성공 궤도에 오릅니다.'
+        }
+      }
+    };
+
+    // Render logic function
+    function renderResult(typeKey) {
+      const typeData = startupTypes[typeKey];
+      const container = document.getElementById('dynamic-result-container');
+      container.innerHTML = ''; // Reset
+      
+      // 1. Create result card
+      const resCard = createResultCard(typeData);
+      
+      // 2. Create chemistry card
+      const chemCard = createChemistryMatch(typeData.partner);
+      
+      // Appended inside the result box area
+      const resultBoxEl = resCard.querySelector(`.result-box-${typeKey}`);
+      if (resultBoxEl) {
+        // Append chemistry match card right before the role model section (or at the bottom of the box)
+        resultBoxEl.appendChild(document.createElement('br'));
+        resultBoxEl.appendChild(chemCard);
+      }
+      
+      container.appendChild(resCard);
+    }
+
+    // Initialize with 'idea' type
+    renderResult('idea');
+
+    // Attach selector buttons handler
+    const typeButtons = document.querySelectorAll('.type-btn');
+    typeButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        typeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const selectedType = btn.getAttribute('data-type');
+        renderResult(selectedType);
+      });
+    });
+  </script>
+</body>
+</html>
