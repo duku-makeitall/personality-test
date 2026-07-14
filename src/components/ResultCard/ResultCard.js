@@ -171,7 +171,7 @@ export function createResultPage({ userAnswers, onRetry }) {
       });
     } catch (err) {
       console.error("Kakao Share Error:", err);
-      showToast("❌ 카카오톡 공유를 실행할 수 없습니다.");
+      showToast(`❌ 카카오톡 공유를 실행할 수 없습니다: ${err.message}`);
     }
   }
 
