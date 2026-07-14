@@ -150,6 +150,12 @@
       </div>
     </div>
 
+    <!-- 1.5 INTRO PAGE -->
+    <h2 class="section-title"><span>🚀</span> 1.5 Intro 컴포넌트 (시작 화면)</h2>
+    <div class="demo-grid" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+      <div id="intro-container"></div>
+    </div>
+
     <!-- 2. GLASS CARD -->
     <h2 class="section-title"><span>🔮</span> 2. GlassCard 컴포넌트</h2>
     <div class="demo-grid" style="grid-template-columns: 1fr;">
@@ -190,6 +196,7 @@
     import { ProgressBar } from './src/components/ProgressBar/ProgressBar.js';
     import { createResultCard } from './src/components/ResultCard/ResultCard.js';
     import { createChemistryMatch } from './src/components/ChemistryMatch/ChemistryMatch.js';
+    import { createIntroPage } from './src/components/Intro/Intro.js';
 
     // 1. BUTTON DEMOS
     const pBtn = createButton({
@@ -238,6 +245,12 @@
       onClick: () => alert('클립보드에 복사되었습니다!')
     });
     document.getElementById('btn-share-container').appendChild(sBtn);
+
+    // 1.5 INTRO PAGE DEMO
+    const introPage = createIntroPage({
+      onStart: () => alert('테스트 시작하기 버튼이 클릭되었습니다!')
+    });
+    document.getElementById('intro-container').appendChild(introPage);
 
     // 2. GLASS CARD DEMO
     const cardContent = `

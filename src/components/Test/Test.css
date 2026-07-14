@@ -1,0 +1,89 @@
+/* src/components/Test/Test.css */
+
+.test-page-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.test-card {
+  padding: 36px 28px !important;
+  position: relative;
+}
+
+.question-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Q Badge */
+.q-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  padding: 6px 14px;
+  border-radius: 50px;
+  align-self: flex-start;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.05);
+}
+
+.q-badge strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Question Title */
+.q-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-text-white);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+/* Choices list layout */
+.choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Choice option buttons */
+.choices-list .btn-choice {
+  word-break: keep-all;
+  line-height: 1.4;
+}
+
+/* Footer layout */
+.test-footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-start;
+  border-top: 1px solid var(--color-border-glass);
+  padding-top: 24px;
+}
+
+.test-footer button {
+  min-width: 120px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .test-card {
+    padding: 24px 18px !important;
+  }
+
+  .q-title {
+    font-size: 1.15rem;
+  }
+}

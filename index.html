@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>창업 성향 테스트 - 내 안의 창업 DNA 분석</title>
+  
+  <!-- Font assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Global styling -->
+  <link rel="stylesheet" href="src/styles/main.css">
+  
+  <!-- Kakao SDK for KakaoTalk Sharing -->
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+  
+  <style>
+    /* Styling extension for page wrappers */
+    body {
+      background: var(--color-bg-darkest);
+      color: var(--color-text-white);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main App Wrapper -->
+  <div id="app"></div>
+
+  <!-- Main Application Logic script -->
+  <script type="module">
+    import { createIntroPage } from './src/components/Intro/Intro.js';
+    import { createTestPage } from './src/components/Test/Test.js';
+    import { createLoadingPage } from './src/components/Loading/Loading.js';
+    import { createResultPage } from './src/components/ResultCard/ResultCard.js';
+
+    const appContainer = document.getElementById('app');
+
+    // Render the Intro/Start Screen
+    function showIntro() {
+      appContainer.innerHTML = '';
+      
+      const introPage = createIntroPage({
+        onStart: () => {
+          showTest();
+        }
+      });
+      
+      appContainer.appendChild(introPage);
+    }
+
+    // Render the Test Screen (12 questions)
+    function showTest() {
+      appContainer.innerHTML = '';
+      
+      const testPage = createTestPage({
+        onComplete: (userAnswers) => {
+          showLoading(userAnswers);
+        },
+        onCancel: () => {
+          showIntro();
+        }
+      });
+      
+      appContainer.appendChild(testPage);
+    }
+
+    // Render the Loading / Analysis Screen (2 seconds)
+    function showLoading(userAnswers) {
+      appContainer.innerHTML = '';
+      
+      const loadingPage = createLoadingPage({
+        onComplete: () => {
+          showResult(userAnswers);
+        }
+      });
+      
+      appContainer.appendChild(loadingPage);
+    }
+
+    // Render the Final Result Screen
+    function showResult(userAnswers) {
+      appContainer.innerHTML = '';
+      
+      const resultPage = createResultPage({
+        userAnswers: userAnswers,
+        onRetry: () => {
+          showIntro();
+        }
+      });
+      
+      appContainer.appendChild(resultPage);
+    }
+
+    // Initialize Application
+    showIntro();
+  </script>
+
+</body>
+</html>

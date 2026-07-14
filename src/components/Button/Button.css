@@ -13,6 +13,13 @@
   text-decoration: none;
 }
 
+/* Ensure inner text elements inherit style (override global span styles) */
+.btn span {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 /* Primary CTA Button (START TEST, RETRY) */
 .btn-primary {
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));

@@ -15,8 +15,8 @@
 
   /* Neutral Text Colors */
   --color-text-white: #ffffff;   /* 제목, 중요 강조 텍스트 */
-  --color-text-gray: #94a3b8;    /* 본문, 부설명 */
-  --color-text-muted: #64748b;   /* 비활성, 플레이스홀더 */
+  --color-text-gray: #ffffff;    /* 본문, 부설명 (가독성 강화를 위해 흰색으로 변경) */
+  --color-text-muted: #94a3b8;   /* 비활성, 플레이스홀더 (어두운 회색에서 밝은 회색으로 상향) */
 
   /* Shadows & Glows */
   --glow-primary: 0 0 15px rgba(0, 229, 255, 0.4);

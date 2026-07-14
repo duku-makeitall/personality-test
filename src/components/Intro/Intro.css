@@ -1,0 +1,187 @@
+/* src/components/Intro/Intro.css */
+
+.intro-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 48px 32px !important;
+}
+
+/* 1. Visual Graphic Area */
+.intro-visual-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glow Spheres in Background */
+.intro-glow-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(24px);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.intro-glow-sphere.primary {
+  width: 80px;
+  height: 80px;
+  background: var(--color-primary);
+  top: 10px;
+  left: 10px;
+  animation: floatPrimary 6s infinite ease-in-out;
+}
+
+.intro-glow-sphere.secondary {
+  width: 90px;
+  height: 90px;
+  background: var(--color-secondary);
+  bottom: 10px;
+  right: 10px;
+  animation: floatSecondary 8s infinite ease-in-out;
+}
+
+.intro-visual-card {
+  position: relative;
+  z-index: 2;
+  width: 110px;
+  height: 110px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-glass);
+  animation: pulseCard 3s infinite ease-in-out;
+}
+
+.intro-visual-emoji {
+  font-size: 3rem;
+  margin-bottom: 4px;
+}
+
+.intro-visual-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+  background: rgba(0, 229, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+/* 2. Text Styles */
+.intro-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.intro-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.intro-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-gray);
+  margin-bottom: 40px;
+}
+
+/* 3. CTA Action Area */
+.intro-cta-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.intro-cta-wrapper button {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* 4. Animations */
+@keyframes floatPrimary {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(15px, -10px) scale(1.1);
+  }
+}
+
+@keyframes floatSecondary {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-15px, 10px) scale(1.15);
+  }
+}
+
+@keyframes pulseCard {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: var(--shadow-glass);
+  }
+  50% {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .intro-card {
+    padding: 32px 20px !important;
+  }
+  
+  .intro-title {
+    font-size: 1.6rem;
+  }
+  
+  .intro-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .intro-description {
+    font-size: 0.85rem;
+  }
+}
